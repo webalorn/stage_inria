@@ -15,5 +15,5 @@ int main() {
 	/*std::cout << "-> Nearest Points: " << std::endl;
 	std::cout << nearests.p1.x << " " << nearests.p1.y << std::endl;
 	std::cout << nearests.p2.x << " " << nearests.p2.y << std::endl;*/
-	std::cout << "Distance: " << sqrt(nearests.distanceSquare()) << std::endl;
+	std::cout << "Distance: " << sqrt(nearests.distanceSquare) << std::endl;
 }
