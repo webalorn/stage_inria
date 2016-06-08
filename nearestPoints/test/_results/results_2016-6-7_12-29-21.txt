@@ -1,0 +1,696 @@
+
+machine Val-Bise
+prog ./test.out
+n 1000
+algo algo1
+---
+timeout 5
+result 269444311
+exectime 0.000
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 1000
+algo algo2
+---
+timeout 5
+result 1707204446
+exectime 0.000
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 10000
+algo algo1
+---
+timeout 5
+result -1455582645
+exectime 0.000
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 10000
+algo algo2
+---
+timeout 5
+result 1780894238
+exectime 0.001
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 100000
+algo algo1
+---
+timeout 5
+result 1746632618
+exectime 0.001
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 100000
+algo algo2
+---
+timeout 5
+result -397630959
+exectime 0.004
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 1000000
+algo algo1
+---
+timeout 5
+result 1309579395
+exectime 0.009
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 1000000
+algo algo2
+---
+timeout 5
+result -245136023
+exectime 0.027
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 10000000
+algo algo1
+---
+timeout 5
+result -1593025974
+exectime 0.085
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 10000000
+algo algo2
+---
+timeout 5
+result -1909348708
+exectime 0.237
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 100000000
+algo algo1
+---
+timeout 5
+result 563608529
+exectime 0.788
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 100000000
+algo algo2
+---
+timeout 5
+result 116719102
+exectime 2.361
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 1000000000
+algo algo1
+---
+timeout 5
+killed 1
+exectime inf
+==========
+machine Val-Bise
+prog ./test.out
+n 1000000000
+algo algo2
+---
+timeout 5
+result 0
+exectime 0.000
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 1000
+algo algo1
+---
+timeout 5
+result 269444311
+exectime 0.000
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 1000
+algo algo2
+---
+timeout 5
+result 1707204446
+exectime 0.000
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 10000
+algo algo1
+---
+timeout 5
+result -1455582645
+exectime 0.000
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 10000
+algo algo2
+---
+timeout 5
+result 1780894238
+exectime 0.000
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 100000
+algo algo1
+---
+timeout 5
+result 1746632618
+exectime 0.001
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 100000
+algo algo2
+---
+timeout 5
+result -397630959
+exectime 0.003
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 1000000
+algo algo1
+---
+timeout 5
+result 1309579395
+exectime 0.008
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 1000000
+algo algo2
+---
+timeout 5
+result -245136023
+exectime 0.026
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 10000000
+algo algo1
+---
+timeout 5
+result -1593025974
+exectime 0.080
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 10000000
+algo algo2
+---
+timeout 5
+result -1909348708
+exectime 0.236
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 100000000
+algo algo1
+---
+timeout 5
+result 563608529
+exectime 0.788
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 100000000
+algo algo2
+---
+timeout 5
+result 116719102
+exectime 2.387
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 1000000000
+algo algo1
+---
+timeout 5
+killed 1
+exectime inf
+==========
+machine Val-Bise
+prog ./test.out
+n 1000000000
+algo algo2
+---
+timeout 5
+result 0
+exectime 0.000
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 1000
+algo algo1
+---
+timeout 5
+result 269444311
+exectime 0.000
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 1000
+algo algo2
+---
+timeout 5
+result 1707204446
+exectime 0.000
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 10000
+algo algo1
+---
+timeout 5
+result -1455582645
+exectime 0.000
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 10000
+algo algo2
+---
+timeout 5
+result 1780894238
+exectime 0.000
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 100000
+algo algo1
+---
+timeout 5
+result 1746632618
+exectime 0.001
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 100000
+algo algo2
+---
+timeout 5
+result -397630959
+exectime 0.003
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 1000000
+algo algo1
+---
+timeout 5
+result 1309579395
+exectime 0.008
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 1000000
+algo algo2
+---
+timeout 5
+result -245136023
+exectime 0.043
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 10000000
+algo algo1
+---
+timeout 5
+result -1593025974
+exectime 0.080
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 10000000
+algo algo2
+---
+timeout 5
+result -1909348708
+exectime 0.239
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 100000000
+algo algo1
+---
+timeout 5
+result 563608529
+exectime 0.788
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 100000000
+algo algo2
+---
+timeout 5
+result 116719102
+exectime 2.385
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 1000000000
+algo algo1
+---
+timeout 5
+killed 1
+exectime inf
+==========
+machine Val-Bise
+prog ./test.out
+n 1000000000
+algo algo2
+---
+timeout 5
+result 0
+exectime 0.000
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 1000
+algo algo1
+---
+timeout 5
+result 269444311
+exectime 0.000
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 1000
+algo algo2
+---
+timeout 5
+result 1707204446
+exectime 0.000
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 10000
+algo algo1
+---
+timeout 5
+result -1455582645
+exectime 0.000
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 10000
+algo algo2
+---
+timeout 5
+result 1780894238
+exectime 0.000
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 100000
+algo algo1
+---
+timeout 5
+result 1746632618
+exectime 0.001
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 100000
+algo algo2
+---
+timeout 5
+result -397630959
+exectime 0.003
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 1000000
+algo algo1
+---
+timeout 5
+result 1309579395
+exectime 0.009
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 1000000
+algo algo2
+---
+timeout 5
+result -245136023
+exectime 0.025
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 10000000
+algo algo1
+---
+timeout 5
+result -1593025974
+exectime 0.087
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 10000000
+algo algo2
+---
+timeout 5
+result -1909348708
+exectime 0.242
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 100000000
+algo algo1
+---
+timeout 5
+result 563608529
+exectime 0.782
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 100000000
+algo algo2
+---
+timeout 5
+result 116719102
+exectime 2.381
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 1000000000
+algo algo1
+---
+timeout 5
+killed 1
+exectime inf
+==========
+machine Val-Bise
+prog ./test.out
+n 1000000000
+algo algo2
+---
+timeout 5
+result 0
+exectime 0.000
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 1000
+algo algo1
+---
+timeout 5
+result 269444311
+exectime 0.000
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 1000
+algo algo2
+---
+timeout 5
+result 1707204446
+exectime 0.000
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 10000
+algo algo1
+---
+timeout 5
+result -1455582645
+exectime 0.000
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 10000
+algo algo2
+---
+timeout 5
+result 1780894238
+exectime 0.000
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 100000
+algo algo1
+---
+timeout 5
+result 1746632618
+exectime 0.001
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 100000
+algo algo2
+---
+timeout 5
+result -397630959
+exectime 0.002
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 1000000
+algo algo1
+---
+timeout 5
+result 1309579395
+exectime 0.013
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 1000000
+algo algo2
+---
+timeout 5
+result -245136023
+exectime 0.029
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 10000000
+algo algo1
+---
+timeout 5
+result -1593025974
+exectime 0.080
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 10000000
+algo algo2
+---
+timeout 5
+result -1909348708
+exectime 0.240
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 100000000
+algo algo1
+---
+timeout 5
+result 563608529
+exectime 0.787
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 100000000
+algo algo2
+---
+timeout 5
+result 116719102
+exectime 2.371
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 1000000000
+algo algo1
+---
+timeout 5
+killed 1
+exectime inf
+==========
+machine Val-Bise
+prog ./test.out
+n 1000000000
+algo algo2
+---
+timeout 5
+result 0
+exectime 0.000
+killed 0
+==========

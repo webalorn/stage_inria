@@ -1,0 +1,33 @@
+
+machine Val-Bise
+prog test.out
+n 1000
+algo algo1
+---
+timeout 5
+killed 0
+==========
+machine Val-Bise
+prog test.out
+n 1000
+algo algo2
+---
+timeout 5
+killed 0
+==========
+machine Val-Bise
+prog test.out
+n 1000000
+algo algo1
+---
+timeout 5
+killed 0
+==========
+machine Val-Bise
+prog test.out
+n 1000000
+algo algo2
+---
+timeout 5
+killed 0
+==========

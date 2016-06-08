@@ -1,0 +1,513 @@
+
+(** {1 Project: the Closest Pair Problem} *)
+
+
+(** {2 First Part: Specification of the problem, and the Brute-force algorithm}
+*)
+
+module Closest_Pair_Problem
+
+predicate _TO_BE_COMPLETED
+constant _VALUE_TO_BE_COMPLETED : 'a
+constant _VARIANT_TO_BE_COMPLETED : int
+
+use export int.Int
+use export real.RealInfix
+(** beware that operators on real numbers are suffixed with a dot:
+    [+.], [-.], [*.], [<.], [>.], [<=.], [>=.] *)
+use export real.Abs
+(** absolute value [abs] from Why3's standard library *)
+use import array.Array
+use import ref.Ref
+
+(** {3 Points in the plane in their distance} *)
+
+type point = { x : real; y : real }
+
+(** The distance function is left abstract and axiomatized.
+    More axioms come later in specific cases for 1D and 2D *)
+function dist (a b : point) : real
+(** non-negativity *)
+axiom dist_pos: forall a b. 0.0 <=. dist a b
+(** symmetry *)
+axiom dist_sym: forall a b. dist a b = dist b a
+
+(** {3 Post-condition for all algorithms solving the problem} *)
+
+type closest_pair_result = {
+  delta : real;
+  ghost first : int;
+  ghost second : int;
+}
+
+(* QUESTION 1 *)
+
+(** [distinct_index_in_range i j low high] states that [i] and [j] are
+    distinct indices in the range [[low..high-1]] *)
+predicate distinct_indices_in_range (i j low high : int) =
+  _TO_BE_COMPLETED
+
+(* QUESTION 2 *)
+
+(** [closest_pair_post_for a low high r] states that [r] is a correct
+    answer for the closest pair problem for sub-array
+    [a[low..high-1]] *)
+predicate closest_pair_post_for (a:array point) (low high:int)
+                                (r:closest_pair_result) =
+  _TO_BE_COMPLETED
+
+(* QUESTION 3 *)
+
+predicate closest_pair_post (a:array point) (r:closest_pair_result) =
+  _TO_BE_COMPLETED
+
+(** {3 Brute-force search} *)
+
+(* QUESTION 4 *)
+
+(** [brute_force_search_sub_array a low high] returns the minimal
+    distance of points in the sub-array [a[low..high-1]]. The size of
+    the sub-array must be at least 2. *)
+let brute_force_search_sub_array (a:array point) (low high:int) :
+     closest_pair_result
+  requires { _TO_BE_COMPLETED }
+  ensures { _TO_BE_COMPLETED }
+= let f = ref low in
+  let s = ref (low+1) in
+  let min = ref (dist a[low] a[low+1]) in
+  for i = low to high - 2 do
+    invariant { _TO_BE_COMPLETED }
+    for j = i+1 to high - 1 do
+      invariant { _TO_BE_COMPLETED }
+      let d = dist a[i] a[j] in
+      if d <. !min then (f := i; s := j; min := d)
+    done
+  done;
+  { delta = !min; first = !f; second = !s }
+
+let brute_force_search (a:array point) : closest_pair_result
+  requires { _TO_BE_COMPLETED }
+  ensures { _TO_BE_COMPLETED }
+= brute_force_search_sub_array a 0 a.length
+
+(** {3 Sorting, abstractly}
+
+We need later to sort arrays, either along x-coordinate or y-coordinate.
+
+This part is common to both the 1D and the 2D cases.
+
+*)
+
+
+(** for sorting we need to indicate with respect to which
+    coordinate. This is stated by a 'projection' parameter of type
+    [point -> real] *)
+use import HighOrd
+
+(** The two projection functions used in the remaining *)
+function proj_x : point -> real = \p. p.x
+function proj_y : point -> real = \p. p.y
+
+(** [sorted proj a] states that the array [a] is sorted in increasing
+    order with respect to the projection function [proj] *)
+predicate sorted (proj : point -> real) (a:array point) =
+  forall i j. 0 <= i <= j < a.length -> proj a[i] <=. proj a[j]
+
+(** ghost result of a sorting algorithm is a pair of mapping [d] and
+    [r] such that [d] o [r] = [r] o [d], thus forming a bijection. *)
+type permutations = {
+   ghost direct : int -> int;
+   ghost reciprocal : int -> int;
+}
+
+(** [is_permute a b p] expresses that [b] is obtained by a permutation
+    of [a], where [p] indicates for which permutation of the indices *)
+predicate is_permute (a b:array 'a) (p : permutations) =
+  a.length = b.length &&
+  forall i. 0 <= i < a.length ->
+    0 <= p.direct i < a.length /\ 0 <= p.reciprocal i < a.length /\
+    p.direct (p.reciprocal i) = i /\ p.reciprocal (p.direct i) = i /\
+    b[i] = a[p.direct i] /\ a[i] = b[p.reciprocal i]
+
+(** [sort a] is assumed to sort the array [a] in increasing order.
+    It is known that it can be implemented with a worst-case
+    time complexity of O(n log n) *)
+val sort (proj:point -> real) (a:array point) : permutations
+  writes { a }
+  ensures { sorted proj a }
+  ensures { is_permute (old a) a result }
+
+end
+
+
+
+
+
+
+(** {2 Solutions of the closest pair problem in dimension 1} *)
+
+module Dimension1
+
+clone import Closest_Pair_Problem
+use import array.Array
+use import ref.Ref
+use int.ComputerDivision
+
+
+(** {3 Axiomatization of distance for the 1D case} *)
+axiom dist_in_1d: forall a b. dist a b = abs (a.x -. b.x)
+
+(** [points_on_x_axis a] states that all points in [a] lie on the
+    x-axis. Notice, however, that this hypothesis is in fact not
+    needed in the remaining. *)
+predicate points_on_x_axis (a:array point) =
+  forall i. 0 <= i < a.length -> a[i].y = 0.0
+
+
+(** {3 Algorithms assuming a sorted array as input} *)
+
+
+
+(* QUESTION 5 *)
+
+(** [linear_search a] returns the solution to the closest pair problem
+    for the set of points [a], assuming that [a] is sorted. Worst-case
+    time complexity is O(n) *)
+let linear_search (a:array point) : closest_pair_result
+  requires { _TO_BE_COMPLETED }
+  ensures { _TO_BE_COMPLETED }
+= let f = ref 0 in
+  let min = ref (dist a[0] a[1]) in
+  for i = 1 to a.length - 2 do
+    invariant { _TO_BE_COMPLETED }
+    let d = dist a[i] a[i+1] in
+      if d <. !min then (min := d; f := i)
+  done;
+  { delta = !min ; first = _VALUE_TO_BE_COMPLETED; second = _VALUE_TO_BE_COMPLETED }
+
+(* QUESTION 6 *)
+
+(** [divide_and_conquer a] returns the solution to the closest pair problem
+    for the set of points [a], assuming that [a] is sorted. Worst-case
+    time complexity is O(n) *)
+let rec divide_and_conquer (a:array point) (low high:int) : closest_pair_result
+  requires { _TO_BE_COMPLETED }
+  variant { _VARIANT_TO_BE_COMPLETED }
+  ensures { _TO_BE_COMPLETED }
+= let len = high - low in
+  if len <= 3 then brute_force_search_sub_array a low high else
+  let middle = low + ComputerDivision.div len 2 in
+  let r1 = divide_and_conquer a low middle in
+  let r2 = divide_and_conquer a middle high in
+  let r = if r1.delta <. r2.delta then r1 else r2 in
+  let d = dist a[middle - 1] a[middle] in
+  if d <. r.delta then
+    { delta = d ; first = _VALUE_TO_BE_COMPLETED ; second = _VALUE_TO_BE_COMPLETED }
+  else r
+
+
+
+(* QUESTION 7 *)
+
+
+(** [full_divide_and_conquer a] returns the solution to the closest pair
+    problem for the set of points [a]. Assuming that sorting is done
+    in O(n log n), worst-case time complexity is O(n log n) too. *)
+let full_divide_and_conquer (a:array point) : closest_pair_result
+  requires { _TO_BE_COMPLETED }
+  ensures { _TO_BE_COMPLETED }
+= let b = Array.copy a in
+  let p = sort proj_x b in
+  let r = divide_and_conquer b 0 a.length in
+  assert { _TO_BE_COMPLETED } ;
+  { delta = r.delta ; first = _VALUE_TO_BE_COMPLETED ; second = _VALUE_TO_BE_COMPLETED }
+
+end
+
+
+
+(** {2 Second Part: The Closest Pair problem in Dimension 2} *)
+
+
+
+module Dimension2
+
+clone import Closest_Pair_Problem
+use import int.ComputerDivision
+use import array.Array
+use import ref.Ref
+
+(** {3 Axiomatization of distance for the 2D case} *)
+
+(** Inequality w.r.t. projections *)
+axiom dist_proj_x: forall a b. abs (a.x -. b.x) <=. dist a b
+axiom dist_proj_y: forall a b. abs (a.y -. b.y) <=. dist a b
+
+(** {3 Divide-and-Conquer Approach} *)
+
+(* QUESTION 8 *)
+
+exception Break
+
+(** [search_strip a delta] searchs for the minimal distance of points
+     in the array [a], assuming it is less than [delta]. It is assumed
+     that all the points lie in some "vertical strip", that is there
+     exists a value [mu] such that the x coordinate of points belong
+     to the [mu - delta, mu + delta].  If the minimal distance is not
+     less than [delta], this function just returns [delta]. *)
+let search_strip (a:array point) (delta:real) : closest_pair_result
+  requires { _TO_BE_COMPLETED }
+  ensures { result.delta <=. delta }
+  ensures { result.delta <. delta -> _TO_BE_COMPLETED }
+  ensures { _TO_BE_COMPLETED }
+= if a.length < 2 then
+    (* dummy values for first and second *)
+    { delta = delta ; first = 0; second = 0 }
+  else
+  let b = Array.copy a in
+  let p = sort proj_y b in
+  let f = ref 0 in
+  let s = ref 0 in
+  let m = ref delta in
+  for i = 0 to b.length - 2 do
+    invariant { _TO_BE_COMPLETED }
+    try
+      for j = i+1 to b.length - 1 do
+        invariant { _TO_BE_COMPLETED }
+        if b[j].y >=. b[i].y +. !m then
+          begin
+            assert { _TO_BE_COMPLETED };
+            raise Break;
+          end;
+        let d = dist b[i] b[j] in
+        if d <. !m then (m := d; f := i; s := j);
+     done
+    with Break -> ()
+    end
+  done; 
+  if !m <. delta then
+     let f' = _VALUE_TO_BE_COMPLETED in let s' = _VALUE_TO_BE_COMPLETED in 
+     { delta = !m ; first = f'; second = s' }
+  else { delta = delta ; first = 0; second = 0 }
+
+
+
+(* QUESTION 9 *)
+
+(** [left_border a low middle mu delta] returns an index [k]
+    such that all points in [a[low..k-1]] have x-coordinate less or
+    equal [mu - delta], whereas points in [a[k..middle-1]] have
+    x-coordinate larger than [mu - delta]. It
+    assumes [a] sorted in x. *)
+let left_border (a:array point) (low middle : int)
+              (mu delta : real) : int
+  requires { _TO_BE_COMPLETED }
+  ensures { low <= result <= middle }
+  ensures { forall i. result <= i < middle -> mu -. delta <. a[i].x }
+  ensures { forall i. low <= i < result -> a[i].x <=. mu -. delta }
+= let l = ref middle in
+  while !l >= low+1 && a[!l-1].x >. mu -. delta do
+    variant { _VARIANT_TO_BE_COMPLETED }
+    invariant { _TO_BE_COMPLETED }
+    l := !l - 1
+  done;
+  !l
+
+(** [right_border a middle high mu delta] returns an index [k] such
+    that all points in [a[middle..k-1]] have x-coordinate less than
+    [mu+delta] whereas points in [a[k..high-1]] have x-coordinate
+    greater or equal [mu+delta]. It assumes [a] sorted in x. *)
+let right_border (a:array point) (middle high : int)
+              (mu delta : real) : int
+  requires { _TO_BE_COMPLETED }
+  ensures { _TO_BE_COMPLETED }
+= _VALUE_TO_BE_COMPLETED
+
+
+
+
+(** {3 Divide and Conquer approach} *)
+
+(* QUESTION 10 *)
+
+(** [divide_and_conquer a low high] returns the solution to the
+    closest pair problem for the sub-array [a[low..high-1]]. It
+    assumes [a] of length at least 2 and sorted in increasing order
+    with respect to the x-coordinate. *)
+let rec divide_and_conquer (a:array point) (low high:int) : closest_pair_result
+  requires { _TO_BE_COMPLETED }
+  variant { _VARIANT_TO_BE_COMPLETED }
+  ensures { _TO_BE_COMPLETED }
+= let len = high - low in
+  if len <= 7 then brute_force_search_sub_array a low high else
+    begin
+      let middle = low + div len 2 in
+      let r1 = divide_and_conquer a low middle in
+      let r2 = divide_and_conquer a middle high in
+      let r = if r1.delta <. r2.delta then r1 else r2 in
+      let d = r.delta in 
+      let mu = (a[middle - 1].x +. a[middle].x) /. 2.0 in
+      let left = left_border a low middle mu d in
+      let right = right_border a middle high mu d in
+      let temp = Array.sub a left (right - left) in
+      (* temp is the sub-array a[left..right-1] *) 
+      let res = search_strip temp d in  
+      if res.delta <. d then
+        begin
+          { res with first = _VALUE_TO_BE_COMPLETED; second = _VALUE_TO_BE_COMPLETED }
+        end
+      else r
+    end
+
+
+(* QUESTION 11 *)
+
+(** [main_algorithm a] returns the solution to the
+    closest pair problem for the points stored in array [a]. It
+    assumes [a] of length at least 2. *)
+let main_algorithm (a:array point) : closest_pair_result
+  requires { _TO_BE_COMPLETED }
+  ensures {  _TO_BE_COMPLETED }
+= let b = Array.copy a in
+  let p = sort proj_x b in
+  let r = divide_and_conquer b 0 b.length in 
+  { delta = r.delta ; first = _VALUE_TO_BE_COMPLETED ; second = _VALUE_TO_BE_COMPLETED }
+
+
+(** {2 Complexity Analysis}
+
+We need more geometric properties of the distance, we state them as
+axioms.
+
+*)
+
+(** invariance by translation *)
+axiom dist_inv_by_translation :
+  forall x1 y1 x2 y2 dx dy : real.
+   dist {x=x1-.dx;y=y1-.dy} {x=x2-.dx;y=y2-.dy} =
+   dist {x=x1;y=y1} {x=x2;y=y2}
+
+(** invariance by symmetry *)
+axiom dist_inv_by_symmetry :
+  forall x1 y1 x2 y2 dx dy : real.
+   dist {x=dx-.x1;y=y1-.dy} {x=dx-.x2;y=y2-.dy} =
+   dist {x=x1;y=y1} {x=x2;y=y2}
+
+axiom dist_smaller_than_manhattan_dist:
+  forall a b. dist a b <=. abs (a.x -. b.x) +. abs (a.y -. b.y)
+
+predicate in_square (p:point) (delta:real) =
+  0.0 <=. p.x <. delta /\ 0.0 <=. p.y <=. delta
+
+(** [too_many_points_in_square] is a geometric property stated as a
+    ghost function instead of an axiom, so as to be invoked by hand on
+    specific instances when needed. It states that it is a
+    contradiction if there are 4 points in the square [[0,delta]] x
+    [[0,delta]] (x=[delta] excluded) whose pairwise distances are less
+    or equal [delta].
+    This geometric property is automatically proved by CVC4 1.4. *)
+let ghost too_many_points_in_square (delta:real) (a b c d : point) : unit
+  requires { in_square a delta }
+  requires { in_square b delta }
+  requires { in_square c delta }
+  requires { in_square d delta }
+  requires { delta <=. dist a b }
+  requires { delta <=. dist a c }
+  requires { delta <=. dist a d }
+  requires { delta <=. dist b c }
+  requires { delta <=. dist b d }
+  requires { delta <=. dist c d }
+  ensures { false }
+= ()
+
+(* QUESTION 12 *)
+
+(** [pigeon_hole side k] take a boolean array [side] of size at least
+    7, and an index [k] such that [[k,k+6]] is a valid sub-range of
+    indices of [side]. It returns a 5-uple [(i1,i2,i3,i4,r)] such that
+    [i1] to [i4] are four distinct indices in the range [k,k+6], and
+    [r] is the 'common side' of them. *)
+let ghost pigeon_hole (side:array bool) (k:int) : (int,int,int,int,bool)
+  requires { 0 <= k }
+  requires { k + 6 < side.length }
+  ensures  { match result with (i1,i2,i3,i4,s) ->
+              k <= i1 < i2 < i3 < i4 <= k + 6 &&
+              side[i1] = side[i2] = side[i3] = side[i4] = s
+            end }
+= let left = Array.make 7 0 in
+  let right = Array.make 7 0 in
+  let nl = ref 0 in
+  let nr = ref 0 in
+  for i = k to k+6 do
+    invariant { _TO_BE_COMPLETED }
+    if side[i] then (left[!nl] <- i; nl := !nl + 1)
+               else (right[!nr] <- i; nr := !nr + 1)
+  done;
+  if !nl > !nr then (left[0],left[1],left[2],left[3],True)
+               else (right[0],right[1],right[2],right[3],False)
+
+(* QUESTION 13 *)
+
+(** [too_many_points_in_rectangle a mu delta k side] is a ghost function that
+    derives a contradiction assuming that all the 7 points [a[k]] to
+    [a[k+6]] lie in a rectangle of dimensions [delta x 2delta], x-centered on
+    [mu]. [side] is an array of same length as [a] such that
+    [side[i]] is True when [a[i]] is on the right of [mu] and
+    False if it is on the left. It is assumed that when two points are
+    on the same side, then their distance is at least [delta].  *)
+let ghost too_many_points_in_rectangle (a:array point) (mu delta:real)
+                          (k:int) (side:array bool)
+  requires { 0.0 <=. delta }
+  requires { 0 <= k }
+  requires { k + 6 < a.length }
+  requires { forall i. k+1 <= i <= k + 6 ->
+               a[k].y <=. a[i].y <. a[k].y +. delta }
+  requires { forall i. k <= i <= k + 6 ->
+               mu -. delta <. a[i].x <. mu +. delta }
+  requires { side.length = a.length }
+  requires { forall i. 0 <= i < a.length ->
+     if side[i] then a[i].x >=. mu else a[i].x <=. mu }
+  requires { forall i j. distinct_indices_in_range i j 0 a.length ->
+     side[i] = side[j] -> delta <=. dist a[i] a[j] }
+  ensures { false }
+= let base = a[k].y in
+  let (i1,i2,i3,i4,s) = pigeon_hole side k in
+  (* call too_many_points_in_square with appropriate symmetry and translation *)
+  if s then
+      _VALUE_TO_BE_COMPLETED
+  else
+      _VALUE_TO_BE_COMPLETED
+
+
+(* QUESTION 14 *)
+
+(** [search_strip_complexity] is a variant of [search_strip] with
+    extra ghost parameters. It is proved, thanks to the loop invariant
+    [j <= i + 6], that the number of iterations of the inner loop is
+    bounded, from which we derive by a meta-argument that its
+    worst-case time complexity is linear in the length of [a]. *)
+let search_strip_complexity (a:array point) (delta : real)
+    (ghost mu : real) (ghost side:array bool)
+    : closest_pair_result
+  requires { side.length = a.length }
+  requires { forall i. 0 <= i < a.length ->
+     if side[i] then a[i].x >=. mu else a[i].x <=. mu }
+  requires { forall i j. distinct_indices_in_range i j 0 a.length ->
+     side[i] = side[j] -> delta <=. dist a[i] a[j] }
+  requires { _TO_BE_COMPLETED }
+  ensures { _TO_BE_COMPLETED }
+= _VALUE_TO_BE_COMPLETED
+
+(* take code from search_strip and insert :
+
+        invariant { j <= i + 6 }
+        if b[j].y >=. b[i].y +. !m then
+          begin
+            ...
+            raise Break;
+          end;
+        if j = i + 6 then too_many_points_in_rectangle ...;
+
+*)
+
+end

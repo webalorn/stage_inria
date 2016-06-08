@@ -1,0 +1,781 @@
+
+machine Val-Bise
+prog ./main
+n 1000
+algo optim2
+seed 2
+---
+timeout 5
+distance 12.1655
+exectime 0.000585
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 1000
+algo optim2
+seed 3
+---
+timeout 5
+distance 10.8167
+exectime 0.000621
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 1000
+algo optim2
+seed 4
+---
+timeout 5
+distance 5.83095
+exectime 0.000571
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 1000
+algo brutal
+seed 2
+---
+timeout 5
+distance 12.1655
+exectime 0.011317
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 1000
+algo brutal
+seed 3
+---
+timeout 5
+distance 10.8167
+exectime 0.011052
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 1000
+algo brutal
+seed 4
+---
+timeout 5
+distance 5.83095
+exectime 0.011872
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 1000
+algo classical
+seed 2
+---
+timeout 5
+distance 12.1655
+exectime 0.001065
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 1000
+algo classical
+seed 3
+---
+timeout 5
+distance 10.8167
+exectime 0.001307
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 1000
+algo classical
+seed 4
+---
+timeout 5
+distance 5.83095
+exectime 0.000999
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 1000
+algo projections
+seed 2
+---
+timeout 5
+distance 4143.08
+exectime 1e-05
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 1000
+algo projections
+seed 3
+---
+timeout 5
+distance 4622.01
+exectime 6e-06
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 1000
+algo projections
+seed 4
+---
+timeout 5
+distance 774.078
+exectime 7e-06
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 10000
+algo optim2
+seed 2
+---
+timeout 5
+distance 6.32456
+exectime 0.005149
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 10000
+algo optim2
+seed 3
+---
+timeout 5
+distance 5.09902
+exectime 0.004554
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 10000
+algo optim2
+seed 4
+---
+timeout 5
+distance 8.94427
+exectime 0.006229
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 10000
+algo brutal
+seed 2
+---
+timeout 5
+distance 6.32456
+exectime 1.00646
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 10000
+algo brutal
+seed 3
+---
+timeout 5
+distance 5.09902
+exectime 1.01014
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 10000
+algo brutal
+seed 4
+---
+timeout 5
+distance 8.94427
+exectime 1.00546
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 10000
+algo classical
+seed 2
+---
+timeout 5
+distance 6.32456
+exectime 0.017662
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 10000
+algo classical
+seed 3
+---
+timeout 5
+distance 5.09902
+exectime 0.017024
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 10000
+algo classical
+seed 4
+---
+timeout 5
+distance 8.94427
+exectime 0.017714
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 10000
+algo projections
+seed 2
+---
+timeout 5
+distance 20595
+exectime 5.5e-05
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 10000
+algo projections
+seed 3
+---
+timeout 5
+distance 69469
+exectime 6e-05
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 10000
+algo projections
+seed 4
+---
+timeout 5
+distance 84352
+exectime 7.7e-05
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 100000
+algo optim2
+seed 2
+---
+timeout 5
+distance 9.43398
+exectime 0.057762
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 100000
+algo optim2
+seed 3
+---
+timeout 5
+distance 3.60555
+exectime 0.045319
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 100000
+algo optim2
+seed 4
+---
+timeout 5
+distance 12.1655
+exectime 0.066368
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 100000
+algo brutal
+seed 2
+---
+timeout 5
+killed 1
+exectime inf
+==========
+machine Val-Bise
+prog ./main
+n 100000
+algo brutal
+seed 3
+---
+timeout 5
+killed 1
+exectime inf
+==========
+machine Val-Bise
+prog ./main
+n 100000
+algo brutal
+seed 4
+---
+timeout 5
+killed 1
+exectime inf
+==========
+machine Val-Bise
+prog ./main
+n 100000
+algo classical
+seed 2
+---
+timeout 5
+distance 9.43398
+exectime 0.194262
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 100000
+algo classical
+seed 3
+---
+timeout 5
+distance 3.60555
+exectime 0.193319
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 100000
+algo classical
+seed 4
+---
+timeout 5
+distance 12.1655
+exectime 0.194273
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 100000
+algo projections
+seed 2
+---
+timeout 5
+distance 651691
+exectime 0.000534
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 100000
+algo projections
+seed 3
+---
+timeout 5
+distance 200987
+exectime 0.000548
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 100000
+algo projections
+seed 4
+---
+timeout 5
+distance 89784
+exectime 0.00059
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 200000
+algo optim2
+seed 2
+---
+timeout 5
+distance 6.7082
+exectime 0.110765
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 200000
+algo optim2
+seed 3
+---
+timeout 5
+distance 3.60555
+exectime 0.107399
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 200000
+algo optim2
+seed 4
+---
+timeout 5
+distance 9.84886
+exectime 0.111005
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 200000
+algo brutal
+seed 2
+---
+timeout 5
+killed 1
+exectime inf
+==========
+machine Val-Bise
+prog ./main
+n 200000
+algo brutal
+seed 3
+---
+timeout 5
+killed 1
+exectime inf
+==========
+machine Val-Bise
+prog ./main
+n 200000
+algo brutal
+seed 4
+---
+timeout 5
+killed 1
+exectime inf
+==========
+machine Val-Bise
+prog ./main
+n 200000
+algo classical
+seed 2
+---
+timeout 5
+distance 6.7082
+exectime 0.421268
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 200000
+algo classical
+seed 3
+---
+timeout 5
+distance 3.60555
+exectime 0.430822
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 200000
+algo classical
+seed 4
+---
+timeout 5
+distance 9.84886
+exectime 0.444481
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 200000
+algo projections
+seed 2
+---
+timeout 5
+distance 828749
+exectime 0.001476
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 200000
+algo projections
+seed 3
+---
+timeout 5
+distance 249292
+exectime 0.001332
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 200000
+algo projections
+seed 4
+---
+timeout 5
+distance 1.92781e+06
+exectime 0.000869
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 500000
+algo optim2
+seed 2
+---
+timeout 5
+distance 3.16228
+exectime 0.226804
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 500000
+algo optim2
+seed 3
+---
+timeout 5
+distance 7.81025
+exectime 0.263076
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 500000
+algo optim2
+seed 4
+---
+timeout 5
+distance 2.82843
+exectime 0.215894
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 500000
+algo brutal
+seed 2
+---
+timeout 5
+killed 1
+exectime inf
+==========
+machine Val-Bise
+prog ./main
+n 500000
+algo brutal
+seed 3
+---
+timeout 5
+killed 1
+exectime inf
+==========
+machine Val-Bise
+prog ./main
+n 500000
+algo brutal
+seed 4
+---
+timeout 5
+killed 1
+exectime inf
+==========
+machine Val-Bise
+prog ./main
+n 500000
+algo classical
+seed 2
+---
+timeout 5
+distance 3.16228
+exectime 1.04029
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 500000
+algo classical
+seed 3
+---
+timeout 5
+distance 7.81025
+exectime 1.03564
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 500000
+algo classical
+seed 4
+---
+timeout 5
+distance 2.82843
+exectime 1.03297
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 500000
+algo projections
+seed 2
+---
+timeout 5
+distance 3.51091e+06
+exectime 0.007252
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 500000
+algo projections
+seed 3
+---
+timeout 5
+distance 447810
+exectime 0.002797
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 500000
+algo projections
+seed 4
+---
+timeout 5
+distance 652781
+exectime 0.003687
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 1000000
+algo optim2
+seed 2
+---
+timeout 5
+distance 8.24621
+exectime 0.487034
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 1000000
+algo optim2
+seed 3
+---
+timeout 5
+distance 9.21954
+exectime 0.483103
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 1000000
+algo optim2
+seed 4
+---
+timeout 5
+distance 2.82843
+exectime 0.572143
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 1000000
+algo brutal
+seed 2
+---
+timeout 5
+killed 1
+exectime inf
+==========
+machine Val-Bise
+prog ./main
+n 1000000
+algo brutal
+seed 3
+---
+timeout 5
+killed 1
+exectime inf
+==========
+machine Val-Bise
+prog ./main
+n 1000000
+algo brutal
+seed 4
+---
+timeout 5
+killed 1
+exectime inf
+==========
+machine Val-Bise
+prog ./main
+n 1000000
+algo classical
+seed 2
+---
+timeout 5
+distance 8.24621
+exectime 2.19406
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 1000000
+algo classical
+seed 3
+---
+timeout 5
+distance 9.21954
+exectime 2.19424
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 1000000
+algo classical
+seed 4
+---
+timeout 5
+distance 2.82843
+exectime 2.17855
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 1000000
+algo projections
+seed 2
+---
+timeout 5
+distance 323377
+exectime 0.00976
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 1000000
+algo projections
+seed 3
+---
+timeout 5
+distance 3.60519e+06
+exectime 0.009222
+killed 0
+==========
+machine Val-Bise
+prog ./main
+n 1000000
+algo projections
+seed 4
+---
+timeout 5
+distance 7.58713e+06
+exectime 0.009185
+killed 0
+==========

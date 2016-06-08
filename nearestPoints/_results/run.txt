@@ -1,0 +1,3 @@
+distance 9.43398
+exectime 0.198134
+killed 0

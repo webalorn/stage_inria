@@ -1,0 +1,147 @@
+\documentclass{article}
+
+\usepackage[francais]{babel}
+\def\printlandscape{\special{landscape}}    % Works with dvips.
+%\usepackage{pstricks,pst-node,pst-tree}
+%\usepackage{amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} 
+\usepackage{fancybox} % for shadow and Bitemize
+\usepackage{alltt}
+\usepackage{graphicx}
+%\usepackage{epsfig}
+%\usepackage{fullpage}
+%\usepackage{fancyhdr}
+%\usepackage{moreverb}
+%\usepackage{xspace}
+\usepackage[colorlinks,hyperindex,bookmarks,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+
+\usepackage{wrapfig}
+\usepackage{epsf}
+
+\title{Rapport de Stage de seconde}
+\author{Théophane Vallaeys}
+\date{\today}
+% latex listing: mettre du code
+         
+\begin{document}
+
+\begin{titlepage}
+	%\begin{sffamily}
+		\begin{center}
+			\begin{figure}[!tbp]
+				\centering
+				\begin{minipage}[b]{0.3\linewidth}
+					\includegraphics[width=\textwidth]{INRIA_CORPO_RVB.jpg}
+					\caption{Inria}
+				\end{minipage}
+				\hfill
+				\begin{minipage}[b]{0.3\linewidth}
+					\includegraphics[width=\textwidth]{logo_lri.jpg}
+					\caption{LRI}
+				\end{minipage}
+				\hfill
+				\begin{minipage}[b]{0.3\linewidth}
+					\includegraphics[width=\textwidth]{logo_0.png}
+					\caption{Paris-Saclay}
+				\end{minipage}
+			\end{figure}
+			
+			\textsc{\LARGE Lycée St-Jean, Douai }\\[2cm]
+			
+			\textsc{\Large Rapport de stage de 2\textsuperscript{nd}}\\[1.5cm]
+			
+			% Title
+			{ \huge \bfseries Stage à l'Inria\\[0.4cm] }
+			
+			%\includegraphics[scale=0.2]{logo_lri.jpg}
+			
+			% Author and supervisor
+			\begin{minipage}{0.4\textwidth}
+				\begin{flushleft} \large
+					Théophane \textsc{Vallayes}\\
+					2\textsuperscript{nd}1, année 2015-2016\\
+				\end{flushleft}
+			\end{minipage}
+			\begin{minipage}{0.4\textwidth}
+				\begin{flushright} \large
+					\emph{Sous la responsabilité de :} \textsc{Arthur CHARGERAUD}
+				\end{flushright}
+			\end{minipage}
+			
+			\vfill
+			
+			% Bottom of the page
+			{\large 6 Juin — 11 juin 2013}
+			
+		\end{center}
+	%\end{sffamily}
+\end{titlepage}
+
+\maketitle
+\tableofcontents
+
+\begin{abstract}
+Ce stage s'est déroulé dans le batiment PCRI(Pôle Comun de Recherche en Informatique), avec une équipe de l'Inria (institut de national de recherche en informatique et en automatique)
+% Stage à l'Inria, présentation + remerciements 
+\end{abstract}
+
+%-----------------------------------------------------------
+\section{Introduction}\label{sec:intro}
+
+\subsection{Présentation de l'INRIA}
+\subsection{Le PCRI}
+\subsection{Le LRI} % lien avec l'INRIA
+\subsection{L'université Paris-Saclay}
+
+%-----------------------------------------------------------
+\section{Le métier de chercheur}
+
+\subsection{L'activité d'un chercheur}
+recherche, cours
+
+\subsection{Les études}
+
+Pour pouvoir accéder à un poste de recherche, il y a plusieures voies possibles. Les 5 premières années, deux choix:
+\begin{itemize}
+	\item 2 années de classe préparatoire
+	\item Ensuite, 3 ans en grande école: ENS, X, Central-Supélec...
+\end{itemize}
+Ou alors:
+\begin{itemize}
+	\item3 années de licences, à l'université
+	\item Puis 2 ans de master (la dernière années, surtout, est très en lien avec les grands écoles)
+\end{itemize}
+\paragraph{Ensuite, on peux faire 3 ans de Thèse.} Ce sont 3 années durant lesquelles on effectue un travail de recherche, aidé par un directeur de thèse, sur un aspect bien précis. Le but est de trouver une solution plus efficace que tout ce qui avait été fait auparavant, et donc de faire un petit peu avancer la recherche. Durant la thèse, on peux aussi être amené à donner des cours, en licence par exemple.
+\paragraph{Après la thèse, on a plusieurs choix:}
+\begin{itemize}
+	\item Un postdoc: on continue un travail de recherche, sur 1, 2, 3 ans.
+	\item Un ATER: on fait de la recherche mais aussi des cours
+	\item Faire autre chose: comme se joindre à une startup, quitter la recherche
+\end{itemize}
+
+\paragraph{Pour devenir chercheur, il faut passer des concours.} Ces concours sont organisés pour sélectionner un chercheur quand un poste de recherche est libre. Ils y en a plusieurs types: 
+\begin{itemize}
+	\item Les concours de l'INRIA, pour faire de la recherche uniquement. On devient alors chargé de recherche (CR), et avec l'expérience et le temps, on peux devenir Directeur de recherche (DR).
+	\item Les concours du CNRS, similaire
+	\item Les concours d'université: on a un poste de recherche, mais on doit en plus faire 192h de cours par ans. En comptant les corrections et préparations, cela peut faire un mi-temps. Ici aussi, deux grades: Maître de conférence. puis Professeur.
+\end{itemize}
+
+\subsection{Le métier}
+papiers, publications dans des journeaux, conférences plus ou moins prestigieuses
+
+
+%-----------------------------------------------------------
+\section{Exemples de travail de recherche: l'équipe VALS de l'Inria}
+
+\section{}
+
+%-----------------------------------------------------------
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% coding: utf-8
+%%% End:

@@ -1,0 +1,141 @@
+\documentclass{article}
+
+\usepackage[francais]{babel}
+\def\printlandscape{\special{landscape}}    % Works with dvips.
+%\usepackage{pstricks,pst-node,pst-tree}
+%\usepackage{amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} 
+\usepackage{fancybox} % for shadow and Bitemize
+\usepackage{alltt}
+\usepackage{graphicx}
+%\usepackage{epsfig}
+%\usepackage{fullpage}
+%\usepackage{fancyhdr}
+%\usepackage{moreverb}
+%\usepackage{xspace}
+\usepackage[colorlinks,hyperindex,bookmarks,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+
+\usepackage{wrapfig}
+\usepackage{epsf}
+
+\title{Rapport de TER}
+\author{Martin Strecker\\
+\url{http://www.irit.fr/~Martin.Strecker}}
+\date{\today}
+         
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\begin{abstract}
+Résumé du contenu du document.
+\end{abstract}
+
+%-----------------------------------------------------------
+\section{Introduction}\label{sec:intro}
+
+Prérequis:
+\begin{itemize}
+\item Un fichier \texttt{*.tex}, par exemple \texttt{rapport.tex}, qui
+  contient le texte.
+\item Un fichier \texttt{*.bib}, par exemple \texttt{rapport.bib}, qui
+  contient les références bibliographiques.
+\end{itemize}
+
+Utilisation de Latex:
+\begin{itemize}
+\item Lancer \texttt{pdflatex rapport} pour compilation du fichier
+  \texttt{rapport.tex}
+\item Lancer \texttt{biblatex rapport} pour compilation du fichier
+  \texttt{rapport.bib}
+\item Répéter \texttt{pdflatex rapport} deux fois pour prendre en
+  compte des modifications
+\end{itemize}
+
+Documentation: 
+\begin{itemize}
+\item \LaTeX: \url{http://www.latex-project.org/} 
+\item \TeX users group: \url{http://www.tug.org/}
+\end{itemize}
+
+
+%-----------------------------------------------------------
+\section{Présentation du projet}
+
+\subsection{But du projet}
+On a utilisé
+\cite{lindholm99_java_virtual_machin_specif,moore89_system_verif} et
+aussi \cite{strecker02_verif_java_compil}.
+
+\subsection{Implantation}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[scale=0.5]{w_gandalf5.jpg}
+  \caption{Une petite image}
+  \label{fig:im}
+\end{figure}
+
+Inclusion d'images en format PDF (création par exemple avec
+XFig\footnote{Page web: \url{http://www.xfig.org/}})
+
+\subsection{Spécialités}
+
+Facile à utiliser: Listes d'éléments numérotés:
+\begin{enumerate}
+\item premier élément
+\item deuxième élément
+\item aussi imbriqués:
+%
+\begin{itemize}
+\item Ici, une liste non numérotée
+\item avec un autre élément
+\end{itemize}
+%
+\end{enumerate}
+
+Mathématiques:
+\begin{itemize}
+\item Sous- et super-scripts: $a_n$ et $b^k$, utiliser des accolades
+  pour des expressions plus complexes: $x^{(y^z)}$
+
+\item Symboles mathématiques, tels que $\sum_{i=0}^{n} f(i)$
+
+\item Caractères de l'alphabet grecque: $\Gamma$ ou calligraphiques: ${\cal D}$
+\end{itemize}
+
+Fontes de caractères spécifiques:
+\begin{itemize}
+\item \emph{Italique}
+\item \textbf{Gras}
+\item \texttt{typewriter}
+\item ou combiné \emph{\textbf{italique-gras}}
+\end{itemize}
+
+%-----------------------------------------------------------
+\section{Gestion du projet}
+
+\begin{tabular}[h]{|l|l|}
+\hline
+Dates              & Tâches  \\
+\hline
+\hline
+Du 7 mars au 2 mai & 1~ière itération \\
+                   & 2~ième  itération \\
+\hline
+\end{tabular}
+
+Je me réfère à la section~\ref{sec:intro} et la figure~\ref{fig:im}.
+
+%-----------------------------------------------------------
+\bibliography{rapport}
+\bibliographystyle{abbrv}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% coding: utf-8
+%%% End:

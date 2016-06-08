@@ -1,0 +1,41 @@
+
+machine Val-Bise
+prog ./test.out
+n 1000
+algo algo1
+---
+timeout 5
+result 269444311
+exectime 0.000
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 1000
+algo algo2
+---
+timeout 5
+result 1707204446
+exectime 0.000
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 1000000
+algo algo1
+---
+timeout 5
+result 1309579395
+exectime 0.058
+killed 0
+==========
+machine Val-Bise
+prog ./test.out
+n 1000000
+algo algo2
+---
+timeout 5
+result -245136023
+exectime 0.039
+killed 0
+==========

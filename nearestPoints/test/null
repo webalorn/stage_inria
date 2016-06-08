@@ -1,0 +1,26 @@
+> pdf('_results/chart-1.pdf', height=6.000000, width=6.000000)
+> error.bar <- function(x, y, upper, lower=upper, length=0.1,...){ 
++  if(length(x) != length(y) | length(y) !=length(lower) | length(lower) != length(upper)) 
++  stop("vectors must be same length") 
++  arrows(x,y+upper, x, y-lower, angle=90, code=3, length=length, ...) 
++  } 
+>  
+> cols <- as.vector(c('#000000','#FF0000'))
+> data0 <- matrix(c(0.000000,0.000000,0.001000,0.009000,0.080333,0.788667,0.000000,0.000000,0.003000,0.024667,0.240000,2.380333),ncol=2)
+> data0err <- matrix(c(0.000000,0.000000,0.000000,0.000816,0.000943,0.001700,0.000000,0.000000,0.000000,0.000471,0.002160,0.008219),ncol=2)
+> 
+> colnames(data0) <- c("algo=algo1","algo=algo2")
+> 
+> rownames(data0) <- c("n=1000","n=10000","n=100000","n=1000000","n=10000000","n=100000000")
+> 
+> table0 <- t(as.table(data0))
+> 
+> par(mar=c(12, 4, 4, 2) + 0.4)
+> bp <- barplot(table0, beside=TRUE, space=c(0,2), las=2, col=cols, names.arg=colnames(table0), xlab='', ylab='exectime', legend=rownames(table0), args.legend = list(x = 'topright'), ylim=range(0.000000,3.570500) )
+> error.bar(t(bp),data0,data0err)
+> title(main='', col.main='black', font.main=1, cex.main=1)
+> 
+> dev.off()
+null device 
+          1 
+> 
